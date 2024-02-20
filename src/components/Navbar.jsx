@@ -11,6 +11,8 @@ const Navbar = () => {
           Boutique
         </a>
         <a href="">Billetterie</a>
+        <p>change</p>
+        <p>change2</p>
         <p>search box</p>
       </div>
     </div>
