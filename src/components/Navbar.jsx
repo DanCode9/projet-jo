@@ -1,19 +1,29 @@
 import React from "react";
 import { MdOutlineShoppingBag } from "react-icons/md";
+import { IoTicketOutline } from "react-icons/io5";
+import { CiSearch } from "react-icons/ci";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
   return (
-    <div className=" p-10  text-2xl font-medium  flex justify-between ">
-      <h1>Menu</h1>
-      <div className="nav-item flex gap-5">
-        <a href="" className="flex 	">
-          <MdOutlineShoppingBag className="align-middle" />
-          Boutique
+    <div className="p-10 text-2xl text-white flex justify-between items-center   font-medium ">
+      <button className="flex gap-2 items-center">
+        <GiHamburgerMenu />
+        <p>Menu</p>
+      </button>
+      <div className="navItems flex gap-5">
+        <a href="" className="flex items-center">
+          <MdOutlineShoppingBag />
+          <p>Boutique</p>
         </a>
-        <a href="">Billetterie</a>
-        <p>change</p>
-        <p>change2</p>
-        <p>search box</p>
+        <a href="" className="flex items-center">
+          <IoTicketOutline />
+          <p>Billetterie</p>
+        </a>
+        <button className="flex gap-2 border-2 border-white py-2 px-5 rounded-full items-center">
+          <p>Recherche</p>
+          <CiSearch />
+        </button>
       </div>
     </div>
   );

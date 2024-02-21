@@ -1,29 +1,38 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import { FaLongArrowAltRight } from "react-icons/fa";
+
 const Home = () => {
   return (
-    <div className="bg-[url('src/img/bg-jo.jpg')] bg-cover  h-screen ">
-      <Navbar />
+    <div className="homepage bg-slate-200  ">
       {/* FIRST PART OF THE LANDING PAGE WITH THE TIMER  */}
-      <div className="landing-box shadow-lg pb-10 ">
-        <div className="landing-items ">
-          <div className="countdown-box mt-20  rounded-full flex gap-5  px-10 py-5 mx-auto w-fit bg-white border-2 border-black ">
-            <p>OMEGA LOGO</p>
-            <p>TIME LEFT UNTIL....</p>
+      <div className="landing-box bg-white pb-[3rem] shadow-md rounded-br-[70px] ">
+        <div className="landing-items bg-[url(src/img/bg-jo-jpg.png)]  bg-cover  shadow-lg pb-5 ">
+          <Navbar />
+          <div className="countdown-box mt-20 shadow-sm items-center rounded-full flex gap-5  px-10  mx-auto w-fit bg-slate-100 border-2 border-black ">
+            <img
+              src="src\img\omegalogo.png"
+              className="border-1 border-black w-[80px] "
+              alt=""
+            />
+            <p className="text-center">
+              JUSQU'AUX JEUX OLYMPIQUES <br /> DE PARIS 2024
+            </p>
             <p>TIMER BOX</p>
           </div>
           <div className="home-content  px-20 ">
-            <h1 className="text-[120px]  font-bold w-[60%] ">
-              Les Meddailes des jeux
+            <h1 className="text-[130px]  font-bold text-white w-[70%] ">
+              LES MÉDAILLES DES JEUX
             </h1>
-            <button className="bg-white mb-20 border-black border-2 p-3 rounded-full">
-              Decouverz les medailles!
+            <button className="bg-white mb-20 flex gap-5 font-medium items-center border-black border-2 py-2 px-3 rounded-full">
+              <p>Decouverz les medailles!</p>
+              <FaLongArrowAltRight />
             </button>
           </div>
         </div>
         {/* NEWS BOX PART */}
-        <div className="news-box mx-10 mt-10">
-          <h2 className="text-3xl font-bold">Actualité de Paris 2024</h2>
+        <div className="news-box mx-10 mt-10 ">
+          <h2 className="text-3xl font-bold mb-7">Actualité de Paris 2024</h2>
           <div className="news-items  grid grid-rows-2 grid-flow-col gap-4">
             <div className="item1 p-5 gap-5 water-polo flex border-l-2 border-black">
               <img
@@ -81,7 +90,7 @@ const Home = () => {
                 </h2>
                 <p>
                   Paris 2024 et son prestataire officiel d’hospitalité, la
-                  société On Location..
+                  société..
                 </p>
               </div>
             </div>
@@ -114,15 +123,15 @@ const Home = () => {
                 </h2>
                 <p>
                   A la suite des inquiétudes exprimées au sujet de
-                  l’installation d’une nouvelle tour des juges
+                  l’installation d’une nouvelle...
                 </p>
               </div>
             </div>
           </div>
         </div>
-        {/* BILLETTERIE PART */}
       </div>
-      <div className="mt-10 billetterie-box flex border-2 border-red-400">
+      {/* BILLETTERIE PART */}
+      <div className="mt-5 billetterie-box flex border-2 border-red-400">
         <div className="bilet-info-box">
           <h2>LA BILLETTERIE DES JEUX</h2>
           <button>Partager</button>
