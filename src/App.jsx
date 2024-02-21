@@ -6,6 +6,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         {/* test */}
+        {/* ia sa vad ceva */}
       </Routes>
     </Router>
   );
