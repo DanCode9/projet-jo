@@ -1,15 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaCreativeCommonsShare } from "react-icons/fa6";
 
 const Home = () => {
+  const calculateTimeLeft = () => {
+    const difference = +new Date("2024-07-26T00:00:00Z") - +new Date();
+    let timeLeft = {};
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
+    }
+
+    return timeLeft;
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  });
+
+  const formatTime = (value) => {
+    return value < 10 ? `0${value}` : value;
+  };
+
   return (
     <div className="homepage bg-slate-200  ">
       {/* FIRST PART OF THE LANDING PAGE WITH THE TIMER  */}
       <div className="landing-box bg-white pb-[3rem] shadow-md rounded-br-[70px] ">
         <div className="landing-items bg-[url(src/img/bg-jo-jpg.png)]  bg-cover  shadow-lg pb-5 ">
           <Navbar />
-          <div className="countdown-box mt-20 shadow-sm items-center rounded-full flex gap-5  px-10  mx-auto w-fit bg-slate-100 border-2 border-black ">
+          <div className="countdown-box mt-20  items-center rounded-full flex gap-5  px-10  mx-auto w-fit bg-slate-100 shadow-xl ">
             <img
               src="src\img\omegalogo.png"
               className="border-1 border-black w-[80px] "
@@ -18,13 +49,28 @@ const Home = () => {
             <p className="text-center">
               JUSQU'AUX JEUX OLYMPIQUES <br /> DE PARIS 2024
             </p>
-            <p>TIMER BOX</p>
+            <div className="jours  text-center">
+              <p>{formatTime(timeLeft.days)}</p>
+              <p>JOURS</p>
+            </div>
+            <div className="heures text-center">
+              <p>{formatTime(timeLeft.hours)}</p>
+              <p>HEURES</p>
+            </div>
+            <div className="minutes text-center ">
+              <p>{formatTime(timeLeft.minutes)}</p>
+              <p>MINUTES</p>
+            </div>
+            <div className="seconds  text-center">
+              <p>{formatTime(timeLeft.seconds)}</p>
+              <p>SECONDES</p>
+            </div>
           </div>
           <div className="home-content  px-20 ">
             <h1 className="text-[130px]  font-bold text-white w-[70%] ">
               LES MÉDAILLES DES JEUX
             </h1>
-            <button className="bg-white mb-20 flex gap-5 font-medium items-center border-black border-2 py-2 px-3 rounded-full">
+            <button className="bg-white mb-20 flex gap-5 font-medium items-center shadow-xl py-2 px-5 rounded-full">
               <p>Decouverz les medailles!</p>
               <FaLongArrowAltRight />
             </button>
@@ -73,8 +119,8 @@ const Home = () => {
                   30 minutes d’activité physique quotidienne à l’école
                 </h2>
                 <p>
-                  91 % des enseignants constatent une réduction de la
-                  sédentarité des enfants
+                  91% des enseignants constatent une réduction de la sédentarité
+                  des enfants
                 </p>
               </div>
             </div>
@@ -131,14 +177,20 @@ const Home = () => {
         </div>
       </div>
       {/* BILLETTERIE PART */}
-      <div className="mt-5 billetterie-box flex border-2 border-red-400">
-        <div className="bilet-info-box">
-          <h2>LA BILLETTERIE DES JEUX</h2>
-          <button>Partager</button>
-          <p>Nouveaux billets disponibles dès maintenant !</p>
+      <div className="mt-5 billetterie-box border-2 border-red-400 bg-red-100 p-20">
+        <div className="test bg-white bg-opacity-10">
+          <h2 className="text-[130px] font-bold text-indigo-600 ">
+            LES RENDEZ-VOUS SURPRISES !
+          </h2>
+          <button className="text-xl flex items-center gap-2">
+            <FaCreativeCommonsShare />
+            Partager
+          </button>
+          <p className="text-3xl">
+            Nouveaux billets disponibles dès maintenant !
+          </p>
           <button>Je fonce!</button>
         </div>
-        <img src="" alt="image" />
       </div>
     </div>
   );
