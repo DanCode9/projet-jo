@@ -14,11 +14,11 @@ const Navbar = () => {
       <div className="navItems flex gap-5">
         <a href="" className="flex items-center hover:text-slate-300">
           <MdOutlineShoppingBag />
-          <p>Boutique</p>
+          <a href="/boutique">Boutique</a>
         </a>
         <a href="" className="flex items-center hover:text-slate-300">
           <IoTicketOutline />
-          <p>Billetterie</p>
+          <a href="/billetterie">Billetterie</a>
         </a>
         <button className="flex gap-2 border-2 border-white py-2 px-5 rounded-full items-center hover:text-slate-300">
           <p>Recherche</p>

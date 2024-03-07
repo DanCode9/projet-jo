@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "tailwindcss/tailwind.css";
 import Cart from "./Cart";
 
-const OlympicGamesForm = () => {
+const Billetterie = () => {
   const [tickets, setTickets] = useState([]);
   const [prenom, setPrenom] = useState("");
   const [nom, setNom] = useState("");
@@ -11,7 +11,6 @@ const OlympicGamesForm = () => {
   const [arena, setArena] = useState("");
   const [depuisDate, setDepuisDate] = useState("");
   const [jusquauDate, setJusquauDate] = useState("");
-  const [nombreBillet, setNombreBillet] = useState(1);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +22,6 @@ const OlympicGamesForm = () => {
       arena: arena,
       depuisDate: depuisDate,
       jusquauDate: jusquauDate,
-      nombreBillet: nombreBillet,
     };
 
     setTickets([...tickets, newTicket]);
@@ -35,17 +33,6 @@ const OlympicGamesForm = () => {
     setArena("");
     setDepuisDate("");
     setJusquauDate("");
-    setNombreBillet(1);
-  };
-
-  const incrementTicket = () => {
-    setNombreBillet(nombreBillet + 1);
-  };
-
-  const decrementTicket = () => {
-    if (nombreBillet > 1) {
-      setNombreBillet(nombreBillet - 1);
-    }
   };
 
   return (
@@ -202,38 +189,19 @@ const OlympicGamesForm = () => {
               <option value="Nice Stadium">Nice Stadium</option>
             </select>
           </div>
-        </div>
-        <div className="mb-4">
-          <div className="flex justify-between">
+          <div className="w-1/2 ml-2 flex justify-end items-end">
             <button
-              type="button"
-              onClick={decrementTicket}
+              type="submit"
               className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              -
-            </button>
-            <span className="text-gray-700 text-sm font-semibold">
-              {nombreBillet}
-            </span>
-            <button
-              type="button"
-              onClick={incrementTicket}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              +
+              Acheter un billet
             </button>
           </div>
         </div>
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        >
-          Acheter un billet
-        </button>
       </form>
       <Cart tickets={tickets} setTickets={setTickets} />
     </div>
   );
 };
 
-export default OlympicGamesForm;
+export default Billetterie;

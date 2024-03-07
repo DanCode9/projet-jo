@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./components/Cart";
-import OlympicGamesForm from "./components/TicketForm";
+import OlympicGamesForm from "./components/Billetterie";
 
 export default function App() {
   const [tickets, setTickets] = useState([]);

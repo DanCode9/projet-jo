@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { FaCreativeCommonsShare } from "react-icons/fa6";
 import Footer from "../components/Footer";
-import OlympicGamesForm from "../components/TicketForm";
+import OlympicGamesForm from "../components/Billetterie";
 import Cart from "../components/Cart";
 
 const Home = () => {
