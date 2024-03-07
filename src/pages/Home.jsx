@@ -2,8 +2,13 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { FaCreativeCommonsShare } from "react-icons/fa6";
+import Footer from "../components/Footer";
+import OlympicGamesForm from "../components/TicketForm";
+import Cart from "../components/Cart";
 
 const Home = () => {
+  const [tickets, setTickets] = useState([]);
+
   const calculateTimeLeft = () => {
     const difference = +new Date("2024-07-26T00:00:00Z") - +new Date();
     let timeLeft = {};
@@ -177,21 +182,164 @@ const Home = () => {
         </div>
       </div>
       {/* BILLETTERIE PART */}
-      <div className="mt-5 billetterie-box border-2 border-red-400 bg-red-100 p-20">
-        <div className="test bg-white bg-opacity-10">
-          <h2 className="text-[130px] font-bold text-indigo-600 ">
+      <div className="mt-5 billetterie-box border-2  shadow-md rounded-br-[70px] pb-20 bg-white">
+        <div className="test bg-white bg-opacity-10 bg-[url(src/img/bg.jpg)] bg-cover px-20 pb-20">
+          <h2 className="text-[130px] font-bold text-amber-300 ">
             LES RENDEZ-VOUS SURPRISES !
           </h2>
           <button className="text-xl flex items-center gap-2">
             <FaCreativeCommonsShare />
             Partager
           </button>
-          <p className="text-3xl">
+          <p className="text-3xl mt-10 ">
             Nouveaux billets disponibles dès maintenant !
           </p>
-          <button>Je fonce!</button>
+          <button className="flex items-center justify-between gap-3 mt-5 bg-black rounded-full text-white py-2 px-7">
+            <p>Site de la billetterie</p> <FaLongArrowAltRight />
+          </button>
+        </div>
+        <div className="bil-info-container mt-20 px-20">
+          <h2 className="text-2xl font-bold mb-10">Plus d'informations</h2>
+          <div className="bil-info-box flex gap-2">
+            <div className="itemS1 p-5 gap-5 water-polo flex border-l-2 border-black">
+              <img className="h-20 rounded-lg" src="src\img\lou.jpg" alt="" />
+              <div className="news-text">
+                <h2 className="font-bold">
+                  Achetez vos billets pour le Hockey
+                </h2>
+                <p>
+                  Retrouvez tous les billets disponibles pour le Hockey sur le
+                  site de la billetterie
+                </p>
+              </div>
+            </div>
+            <div className="item1 p-5 gap-5 water-polo flex border-l-2 border-black">
+              <img className="h-20 rounded-lg" src="src\img\pp.jpg" alt="" />
+              <div className="news-text">
+                <h2 className="font-bold">Venir voir les Jeux</h2>
+                <p>Préparez au mieux votre venue pour les Jeux.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      {/* INFO IMPORTANTE */}
+      <div className="info-import mt-10 border-2 border-black bg-white p-10 text-center flex flex-col gap-5">
+        <h2 className="text-3xl font-bold">INFORMATION IMPORTANTE</h2>
+        <p className="text-lg">
+          PARIS 2024 et son prestataire officiel d'hospitalité, la société On
+          Location, ont récemment été informés que plusieurs personnes et/ou
+          sociétés se font passer pour des représentants autorisés de PARIS 2024
+          et/ou d'On Location pour encaisser frauduleusement des paiements en
+          contrepartie de prestations labellisées Paris 2024 (par exemple, la
+          location de stands de vente sur les sites olympiques) auprès de
+          restaurants et d'entreprises de restauration en France. PARIS 2024 et
+          On Location vous recommandent la plus grande vigilance.
+        </p>
+        <p className="text-lg">
+          Si vous auez le moindre doute, nous vous invitons à contacter l'équipe
+          de PARIS 2024 via integrityandenforcement@paris2024.org et On Location
+          via alertfraud@onlocationexp.com
+        </p>
+        <p className="text-lg">
+          PARIS 2024 et On Location ont déposé des plaintes pénales auprès des
+          autorités compétentes et des enquêtes sont actuellement en cours.
+        </p>
+      </div>
+      {/* PARTENAIRES */}
+      <div className="partenaires-container  mt-10 ">
+        <div className="partenaires-mondiau border-2 text-center p-10 bg-white shadow-md rounded-br-[70px]">
+          <h2 className="text-2xl font-bold">Partenaires Mondiaux</h2>
+          <div className="grid grid-cols-5 justify-center ">
+            <img
+              className="logo item-logo"
+              alt="Airbnb"
+              loading="lazy"
+              src="https://medias.paris2024.org/uploads/2020/05/Rang1-PartMond-1-Airbnb-RVB.svg"
+            />
+            <img
+              className="logo item-logo"
+              alt="Alibaba"
+              loading="lazy"
+              src="https://medias.paris2024.org/uploads/2021/11/Rang1-PartMond-2-Alibaba-RVB.svg"
+            />
+            <img
+              className="logo item-logo"
+              alt="Allianz"
+              loading="lazy"
+              src="https://medias.paris2024.org/uploads/2020/05/Rang1-PartMond-3-Allianz-RVB-1.svg"
+            />
+            <img
+              className="logo item-logo"
+              alt="Atos"
+              loading="lazy"
+              src="https://medias.paris2024.org/uploads/2020/05/Rang1-PartMond-4-Atos-RVB-2.svg"
+            />
+            <img
+              className="logo item-logo"
+              alt="Bridgestone"
+              loading="lazy"
+              src="https://medias.paris2024.org/uploads/2020/05/Rang1-PartMond-5-Bridgestone-RVB.svg"
+            />
+            <img
+              className="logo item-logo"
+              alt="Coca-Cola / Mengniu"
+              loading="lazy"
+              src="https://medias.paris2024.org/uploads/2020/12/Rang1-PartMond-6-CocaCola_Mengniu-RVB.svg"
+            />
+            <img
+              className="logo item-logo"
+              alt="Deloitte"
+              loading="lazy"
+              src="https://medias.paris2024.org/uploads/2022/07/Rang1-PartMond-7-Deloitte-RVB.svg"
+            />
+            <img
+              className="logo item-logo"
+              alt="Intel"
+              loading="lazy"
+              src="https://medias.paris2024.org/uploads/2020/10/Logo-Intel-RVB.svg"
+            />
+            <img
+              className="logo item-logo"
+              alt="Omega"
+              loading="lazy"
+              src="https://medias.paris2024.org/uploads/2020/05/Rang1-PartMond-8-Omega-RVB.svg"
+            />
+            <img
+              className="logo item-logo"
+              alt="Panasonic"
+              loading="lazy"
+              src="https://medias.paris2024.org/uploads/2020/05/Rang1-PartMond-9-Panasonic-RVB.svg"
+            />
+            <img
+              className="logo item-logo"
+              alt="P&amp;G"
+              loading="lazy"
+              src="https://medias.paris2024.org/uploads/2021/09/Rang1-PartMond-10-PG-RVB.svg"
+            />
+            <img
+              className="logo item-logo"
+              alt="Samsung"
+              loading="lazy"
+              src="https://medias.paris2024.org/uploads/2020/05/Rang1-PartMond-11-Samsung-RVB.svg"
+            />
+            <img
+              className="logo item-logo"
+              alt="Toyota"
+              loading="lazy"
+              src="https://medias.paris2024.org/uploads/2020/05/Rang1-PartMond-12-Toyota-RVB.svg"
+            />
+            <img
+              className="logo item-logo"
+              alt="Visa"
+              loading="lazy"
+              src="https://medias.paris2024.org/uploads/2020/12/Rang1-PartMond-13-Visa-RVB-1.svg"
+            />
+          </div>
+        </div>
+      </div>
+      {/* FOOTER */}
+      <Footer />
     </div>
   );
 };
