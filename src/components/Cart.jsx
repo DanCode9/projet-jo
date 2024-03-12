@@ -45,38 +45,45 @@ const Cart = ({ tickets }) => {
           <img className="size-[200px]" src="src\evenements\judo.jpg" alt="" />
         );
       default:
-        return <FaTicketAlt className="text-blue-500 text-4xl mr-4" />;
+        return <FaTicketAlt className="text-yellow-500 text-4xl" />;
     }
   };
+
+  if (tickets.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="container mx-auto mt-8">
-      <h2 className="text-3xl font-semibold mb-4 text-gray-800">
-        Tickets in Cart:
+    <div className="cart-container mx-auto w-[900px] bg-slate-200 overflow-auto max-h-[500px] rounded-lg">
+      <h2 className="text-3xl pt-5 pl-5 font-semibold mb-4 text-gray-800 flex justify-between items-center">
+        Vos billets: {tickets.length}
       </h2>
       {tickets.map((ticket, index) => (
         <div
           key={index}
-          className="flex items-center border-2 border-black bg-white p-4 mb-4 rounded-lg shadow-md"
-          style={{ minWidth: "400px" }} // Adjust minimum width here
+          className="flex items-center justify-between border-2 border-purple-600 bg-white p-4 mb-4 rounded-lg shadow-md"
+          style={{ minWidth: "400px" }}
         >
-          <FaTicketAlt className="text-blue-500 text-4xl mr-4" />
-          <div>
+          <FaTicketAlt className="text-yellow-500 text-4xl" />
+          <div className="ticket-info-box border-2 border-green-500 grid grid-cols-3 gap-3">
             <p className="text-xl font-semibold text-gray-800">
               {ticket.prenom} {ticket.nom}
             </p>
             <p className="text-lg text-gray-600">Ville: {ticket.ville}</p>
             <p className="text-lg text-gray-600">
-              Événement: {ticket.evenement}
+              Depuis le: {ticket.depuisDate}
             </p>
             <p className="text-lg text-gray-600">Arène: {ticket.arena}</p>
             <p className="text-lg text-gray-600">
-              Depuis le: {ticket.depuisDate}
+              Événement: {ticket.evenement}
             </p>
             <p className="text-lg text-gray-600">
               Jusqu'au: {ticket.jusquauDate}
             </p>
           </div>
-          {getSportIcon(ticket.evenement)}
+          <div className="rounded-2xl border-2 border-red-200 overflow-hidden">
+            {getSportIcon(ticket.evenement)}
+          </div>
         </div>
       ))}
     </div>
