@@ -39,7 +39,7 @@ const Billetterie = () => {
   return (
     <div className="landing-ticket bg-[url(src/img/bg2.jpg)] bg-cover pb-10 ">
       <Navbar />
-      <div className="billet-contents flex border-2 p-8 border-blue-400  justify-between">
+      <div className="billet-contents flex p-8   justify-between">
         {/* TICKET FORM */}
         <form
           onSubmit={handleSubmit}
